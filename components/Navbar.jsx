@@ -10,7 +10,7 @@ export default function Navbar() {
                 </Link>
                 </div>
                 <div className="hidden lg:flex lg:gap-x-12">
-                <Link href="/" className="text-sm font-semibold leading-6">Inicio</Link>
+                <Link href="/" className="text-sm font-semibold leading-6">Home</Link>
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                 <Link href="#" className="text-sm font-semibold leading-6">Log in <span aria-hidden="true">&rarr;</span></Link>

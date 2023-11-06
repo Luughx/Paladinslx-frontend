@@ -2,7 +2,7 @@ import HomeInput from "@/components/HomeInput"
 
 export default function Home() {
   return (
-    <div>
+    <div className="mt-6">
       <HomeInput />
     </div>
   )

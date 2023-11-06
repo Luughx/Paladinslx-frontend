@@ -18,8 +18,8 @@ const getPlayer = async (id) => {
       "Content-Type": "application/json",
     },
   });
-  return res.json();
-};
+  return res.json()
+}
 
 const getMatchs = async (id) => {
   const { BACKEND_URI } = process.env;

@@ -8,13 +8,7 @@ const api = new API({
     languageId: 1
 })
 
-export async function GET(request, {params}) {
-    const id = params.id
-
-    if (params.id.length == 0) return  NextResponse.json({
-        message: 'Error: id is zero'
-    })
-
-    const players = await api.searchPlayers(id)
+export async function GET() {
+    const players = await api.getChampions()
     return NextResponse.json(players)
 }

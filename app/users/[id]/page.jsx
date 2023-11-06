@@ -1,10 +1,5 @@
 import Link from "next/link"
 
-export const metadata = {
-  title: 'Paladins',
-  description: '...',
-}
-
 const getPlayers = async (id) => {
   const { BACKEND_URI } = process.env
   const res = await fetch(`${BACKEND_URI}/users/${id}`, {method: "GET", headers: {

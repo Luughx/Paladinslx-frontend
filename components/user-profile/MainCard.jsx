@@ -1,42 +1,11 @@
-function ranksFunction() {
-    return {
-        0: "Unranked",
-        1: "Bronze V",
-        2: "Bronze IV",
-        3: "Bronze III",
-        4: "Bronze II",
-        5: "Bronze I",
-        6: "Silver V",
-        7: "Silver IV",
-        8: "Silver III",
-        9: "Silver II",
-        10: "Silver I",
-        11: "Gold V",
-        12: "Gold IV",
-        13: "Gold III",
-        14: "Gold II",
-        15: "Gold I",
-        16: "Platinum V",
-        17: "Platinum IV",
-        18: "Platinum III",
-        19: "Platinum II",
-        20: "Platinum I",
-        21: "Diamond V",
-        22: "Diamond IV",
-        23: "Diamond III",
-        24: "Diamond II",
-        25: "Diamond I",
-        26: "Master",
-        27: "Grand Master"
-    }
-}
+import { ranks } from "@/functions/main"
 
 export default function MainCard({ name, id, wins, losses, winrate, rank, avatar, lastTime, level, title, hoursPlayed, region }) {
-    const ranks = ranksFunction()
+    const ranksData = ranks()
 
     return (
-        <div className="flex flex-col sticky top-0 z-10">
-            <div className="bg-gray-900 border border-gray-800 shadow-lg  rounded-2xl p-4">
+        <div className="flex flex-col top-0 z-10">
+            <div className="bg-gray-900 border border-gray-800 shadow-lg rounded-2xl p-4">
                 <div className="flex-none sm:flex">
                     <div className=" relative h-32 w-32 sm:mb-0 mb-3">
                         <img
@@ -62,7 +31,7 @@ export default function MainCard({ name, id, wins, losses, winrate, rank, avatar
                                     <div className="flex-auto text-gray-400 my-1">
                                         <span className="mr-3">{level} level</span>
                                         <span className="mr-3 border-r border-gray-600 max-h-0"></span>
-                                        <span>{ranks[parseInt(rank)]}</span>
+                                        <span>{ranksData[parseInt(rank)]}</span>
                                     </div>
                                 </div>
                             </div>
@@ -87,9 +56,8 @@ export default function MainCard({ name, id, wins, losses, winrate, rank, avatar
                                     fill="currentColor"
                                 >
                                     <path
-                                        fill-rule="evenodd"
                                         d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"
-                                        clip-rule="evenodd"
+
                                     ></path>
                                 </svg>
                                 <p className="">{wins} Wins</p>
@@ -102,9 +70,7 @@ export default function MainCard({ name, id, wins, losses, winrate, rank, avatar
                                     fill="currentColor"
                                 >
                                     <path
-                                        fill-rule="evenodd"
                                         d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"
-                                        clip-rule="evenodd"
                                     ></path>
                                 </svg>
                                 <p className="">{winrate} %</p>

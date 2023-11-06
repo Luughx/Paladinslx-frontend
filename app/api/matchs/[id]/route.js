@@ -15,6 +15,6 @@ export async function GET(request, {params}) {
         message: 'Error: id is zero'
     })
 
-    const players = await api.searchPlayers(id)
-    return NextResponse.json(players)
+    const match = await api.getMatchDetails(id)
+    return NextResponse.json(match)
 }

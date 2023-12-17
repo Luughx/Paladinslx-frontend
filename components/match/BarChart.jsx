@@ -64,14 +64,16 @@ export default function BarChart({ names, damage, healing, taken, shielding }) {
                 title: {
                 display: true,
                 },
-            }
+                maintainAspectRatio: false
+            },
+            maintainAspectRatio: false
         })
     }, [])
 
 
     return (
         <div>
-            <Bar data={chartData} options={chartOptions} />
+            <Bar data={chartData} options={{ maintainAspectRatio: false }} width={"100%"} height={300}/>
         </div>
     )
 }

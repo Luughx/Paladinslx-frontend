@@ -26,25 +26,28 @@ export default async function Home({ params }) {
   const images = await championsImage();
   const items_image = await itemsImage();
 
-  const winners = [match[0], match[1], match[2], match[3], match[4]];
-  const lossers = [match[5], match[6], match[7], match[8], match[9]];
+  const winners = [match[0], match[1], match[2], match[3], match[4]]
+  const lossers = [match[5], match[6], match[7], match[8], match[9]]
 
   const bans1 = [
     match[0].Ban_1,
     match[0].Ban_2,
     match[0].Ban_3,
     match[0].Ban_4,
-  ];
+  ]
+
   const bans2 = [
     match[0].Ban_5,
     match[0].Ban_6,
     match[0].Ban_7,
     match[0].Ban_8,
-  ];
+  ]
 
   return (
     <div className="mt-4 p-4">
-      
+      <div className="text-3xl text-gray-100 font-medium leading-8 mb-4">
+        {match[0].name}
+      </div>
       <div className="grid grid-cols-8">
         <MainCardMatch 
         
@@ -53,6 +56,10 @@ export default async function Home({ params }) {
         <MainCardMatch 
                 
         />      
+      </div>
+
+      <div className="text-center">
+        <span className="text-3xl font-bold mt-4">1/4</span>
       </div>
 
       <div className="text-xl font-bold">Bans:</div>
@@ -64,9 +71,9 @@ export default async function Home({ params }) {
                 {bans1.map((ban) => (
                   <div key={ban} className="mr-4">
                     <Image
-                      className="object-cover w-10 h-10 rounded-xl"
-                      width={50}
-                      height={50}
+                      className="object-cover rounded-xl"
+                      width={80}
+                      height={80}
                       src={images[ban]}
                       alt={ban}
                     />
@@ -76,14 +83,14 @@ export default async function Home({ params }) {
             </div>
           </div>
           <div className="text-sm text-gray-500">
-            <div className="flex pt-2 text-sm text-gray-500 mr-4">
+            <div className="flex pt-2 text-sm text-gray-500A">
               <div className="flex-1 inline-flex items-center justify-between">
                 {bans2.map((ban) => (
                   <div key={ban} className="mr-4">
                     <Image
-                      className="object-cover w-10 h-10 rounded-xl"
-                      width={50}
-                      height={50}
+                      className="object-cover rounded-xl"
+                      width={80}
+                      height={80}
                       src={images[ban]}
                       alt={ban}
                     />
@@ -94,6 +101,7 @@ export default async function Home({ params }) {
           </div>
         </div>
       </div>
+
       <section className="container mt-4 mx-auto">
         <div className="flex flex-col mb-4">
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -165,7 +173,7 @@ export default async function Home({ params }) {
                         taken={player.Damage_Taken}
                         healing={player.Healing}
                         champion={player.Reference_Name}
-                        winner={true}
+                        winner={true} 
                         itemsImage={items_image}
                         itemsRaw={[
                           player.Item_Active_1,
@@ -208,8 +216,9 @@ export default async function Home({ params }) {
 
         <div className="flex pt-2 text-sm text-gray-200 mt-4">
           <div className="lg:flex-1 lg:inline-flex items-center justify-between">
-            <div className="w-1/2 h-full bg-gray-900 p-4 mr-2">
-              <span className="text-xl text-gray-200 font-bold">Team 1</span>
+            <div className="md:w-full lg:w-full w-screen lg:h-full md:h-full bg-gray-900 border-gray-800 shadow-lg rounded-2xl p-4 mr-2">
+              <div className="p-4">
+              <span className="text-xl text-gray-200 font-bold">Winners</span>
               <BarChart
               names={[
                 match[0].playerName,
@@ -247,9 +256,10 @@ export default async function Home({ params }) {
                 match[4].Damage_Mitigated
               ]}
               />
+              </div>
             </div>
-            <div className="w-1/2 h-full bg-gray-900 p-4">
-            <span className="text-xl text-gray-200 font-bold">Team 2</span>
+            <div className="md:w-full lg:w-full w-screen lg:h-full md:h-full bg-gray-900 border-gray-800 shadow-lg rounded-2xl p-4 ml-2 lg:mt-4">
+            <span className="text-xl text-gray-200 font-bold">Losers</span>
               <BarChart 
               names={[
                 match[5].playerName,
@@ -290,11 +300,6 @@ export default async function Home({ params }) {
             </div>
           </div>
         </div>
-
-        <div className="chart">
-
-        </div>
-
       </section>
     </div>
   );

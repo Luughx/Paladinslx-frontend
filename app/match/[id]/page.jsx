@@ -2,7 +2,7 @@ import BarChart from "@/components/match/BarChart";
 import UserMatchCard from "@/components/match/UserMatchCard";
 import { championsImage, itemsImage } from "@/functions/main";
 import Image from "next/image";
-import "./chart.css"
+import "./page.css"
 import MainCardMatch from "@/components/match/MainCardMatch";
 
 export const metadata = {
@@ -44,7 +44,7 @@ export default async function Home({ params }) {
   ]
 
   return (
-    <div className="mt-4 p-4">
+    <div className="container mt-4 p-4">
       <div className="text-3xl text-gray-100 font-medium leading-8 mb-4">
         {match[0].name}
       </div>
@@ -104,8 +104,8 @@ export default async function Home({ params }) {
 
       <section className="container mt-4 mx-auto">
         <div className="flex flex-col mb-4">
-          <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+          <div className=" ">
+            <div className="inline-block min-w-full py-2 align-middle">
               <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
                 <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                   <thead className="bg-gray-50 dark:bg-gray-800">
@@ -216,7 +216,7 @@ export default async function Home({ params }) {
 
         <div className="flex pt-2 text-sm text-gray-200 mt-4">
           <div className="lg:flex-1 lg:inline-flex items-center justify-between">
-            <div className="md:w-full lg:w-full w-screen lg:h-full md:h-full bg-gray-900 border-gray-800 shadow-lg rounded-2xl p-4 mr-2">
+            <div className="w-half md:w-half bg-gray-900 border-gray-800 shadow-lg rounded-2xl p-4 md:mr-2 lg:mr-2 md:mt-0 lg:mt-0">
               <div className="p-4">
               <span className="text-xl text-gray-200 font-bold">Winners</span>
               <BarChart
@@ -258,7 +258,7 @@ export default async function Home({ params }) {
               />
               </div>
             </div>
-            <div className="md:w-full lg:w-full w-screen lg:h-full md:h-full bg-gray-900 border-gray-800 shadow-lg rounded-2xl p-4 ml-2 lg:mt-4">
+            <div className="w-half md:w-half bg-gray-900 border-gray-800 shadow-lg rounded-2xl p-4 md:ml-2 lg:ml-2 mt-4 md:mt-0 lg:mt-0">
             <span className="text-xl text-gray-200 font-bold">Losers</span>
               <BarChart 
               names={[

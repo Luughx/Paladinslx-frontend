@@ -20,10 +20,10 @@ export default function MainCard({ name, id, wins, losses, winrate, rank, avatar
                                 <div className="flex flex-col">
                                     <div className="flex pt-2 text-sm text-gray-500">
                                         <div className="flex-1 inline-flex">
-                                            <div className="flex-none text-xl text-gray-200 font-bold leading-none mr-2">
+                                            <div className="flex text-xl text-gray-200 font-bold leading-none mr-2">
                                                 {name} {title ? `(${title})` : ""}
                                             </div>
-                                            <div className="flex-none text-sm text-gray-500 leading-none mt-1">
+                                            <div className="flex text-sm text-gray-500 leading-none mt-1">
                                                 {region}
                                             </div>
                                         </div>

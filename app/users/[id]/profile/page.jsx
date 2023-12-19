@@ -58,7 +58,7 @@ export default async function Home({ params }) {
               hoursPlayed={player.HoursPlayed}
               region={player.Region}
             />
-            <div className="grid grid-cols-12 form-4 ">
+            <div className="grid grid-cols-12 form-4">
               <RankedCard
                 wins={player.RankedKBM.Wins}
                 losses={player.RankedKBM.Losses}

@@ -7,7 +7,7 @@ export async function GET(request, {params}) {
     if (params.id.length == 0) return  NextResponse.json({
         message: 'Error: id is zero'
     })
+    const data = await api.searchPlayers(id).catch(err => console.log(err))
 
-    const players = await api.searchPlayers(id)
-    return NextResponse.json(players)
+    return NextResponse.json(data)
 }

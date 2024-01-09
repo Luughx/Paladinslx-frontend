@@ -16,7 +16,9 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function Home({params}) {
-  const players = await getPlayers(params.id)
+  const players = await getPlayers(params.id).catch(err => {
+    return []
+  })
   
   return (
     <div className="mt-4 container">

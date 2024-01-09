@@ -11,7 +11,7 @@ import {
     ArcElement
   } from 'chart.js'
 import { useEffect, useState } from 'react';
-import "./barChart.css"
+import "./pieChart.css"
 
 ChartJS.register(
     CategoryScale,
@@ -36,8 +36,10 @@ export default function PieChart({ wins, losses }) {
             labels: ["Losses", "Wins"],
             datasets: [
                 {
+                    borderWidth: 3,
+                    borderColor: "#0f172a",
                     data: [losses, wins],
-                    backgroundColor: [ "#b91c1c", "#2563eb"]
+                    backgroundColor: [ "#991b1b", "#1d4ed8"]
                 }
             ]
         })
@@ -51,6 +53,7 @@ export default function PieChart({ wins, losses }) {
                 },
                 maintainAspectRatio: false
             },
+    
             maintainAspectRatio: false
         })
     }, [])

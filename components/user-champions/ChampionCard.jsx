@@ -212,7 +212,7 @@ export default function ChampionCard({ champion, championsDefault, images, loado
                                                 <div className="grid grid-cols-2 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 gap-4 mb-5 mr-4">
                                                     {loadout.LoadoutItems.map(card => (
                                                         <div key={card.ItemId} onClick={() => clickCard(card)}>
-                                                            <div className={`cursor-pointer h-[110px] rounded-md hover:border-2 transition-colors duration-300
+                                                            <div className={`cursor-pointer flex items-center justify-center h-[110px] rounded-md hover:border-2 transition-colors duration-300
                                                             p-1
                                                             border
                                                             ${card.Points === 1 ? "border-gray-100" : ""}
@@ -222,18 +222,20 @@ export default function ChampionCard({ champion, championsDefault, images, loado
                                                             ${card.Points === 5 ? "border-yellow-500" : ""}
                                                             `}>
                                                                 <div>
-                                                                    <Image
-                                                                        src={cardsImage[card.ItemId][0] ? cardsImage[card.ItemId][0] : "/avatar-paladins.webp"}
-                                                                        height={100}
-                                                                        width={100}
-                                                                        alt={card.ItemId}
-                                                                        className="object-cover rounded-md"
-                                                                        placeholder="blur"
-                                                                        blurDataURL={cardsImage[card.ItemId][1]}
-                                                                    />
-                                                                </div>
-                                                                <div className="text-sm line-clamp-2 text-center mt-1">
-                                                                    {card.ItemName}
+                                                                    <div>
+                                                                        <Image
+                                                                            src={cardsImage[card.ItemId][0] ? cardsImage[card.ItemId][0] : "/avatar-paladins.webp"}
+                                                                            height={100}
+                                                                            width={100}
+                                                                            alt={card.ItemId}
+                                                                            className="object-cover rounded-md"
+                                                                            placeholder="blur"
+                                                                            blurDataURL={cardsImage[card.ItemId][1]}
+                                                                        />
+                                                                    </div>
+                                                                    <div className="text-sm line-clamp-2 text-center mt-1">
+                                                                        {card.ItemName}
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>

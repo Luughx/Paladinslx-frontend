@@ -16,6 +16,16 @@ const nextConfig = {
                 protocol: "http",
                 hostname: "localhost",
                 pathname: "**"
+            },
+            {
+                protocol: "https",
+                hostname: "paladins-web.vercel.app",
+                pathname: "**"
+            },
+            {
+                protocol: "https",
+                hostname: "paladinslx.com",
+                pathname: "**"
             }
         ]
     }

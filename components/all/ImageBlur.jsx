@@ -16,7 +16,9 @@ export default async function ImageBlur({ src, width, height, alt, classes }) {
         return Buffer.from(await res.arrayBuffer())
     })
 
-    const { base64 } = await getPlaiceholder(buffer)
+    const { base64 } = await getPlaiceholder(buffer).catch(err => {
+        return "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAIAAAA7ljmRAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAMElEQVR4nGMwZtD9f/3r/xf/jRi0GBI04v+/+31uymJ1BlmG8tjYVGe3dW39iQ7+AGvyEVg1Jq9jAAAAAElFTkSuQmCC"
+    })
 
     return (
         <Image 

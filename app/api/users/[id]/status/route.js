@@ -7,6 +7,6 @@ export async function GET(request, {params}) {
         message: 'Error: id is zero'
     })
 
-    const data = await api.getPlayerChampionRanks(parseInt(id))
-    return NextResponse.json(data)
+    const players = await api.getPlayerStatus(parseInt(id))
+    return NextResponse.json(players)
 }

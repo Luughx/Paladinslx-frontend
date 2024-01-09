@@ -4,11 +4,7 @@ import { championsImage, itemsImage } from "@/functions/main";
 import Image from "next/image";
 import "./page.css"
 import MainCardMatch from "@/components/match/MainCardMatch";
-
-export const metadata = {
-  title: "Paladins",
-  description: "...",
-};
+import ImageBlur from "@/components/all/ImageBlur";
 
 const getMatch = async (id) => {
   const { BACKEND_URI } = process.env;
@@ -20,6 +16,13 @@ const getMatch = async (id) => {
   });
   return res.json();
 };
+
+export async function generateMetadata({ params }) {
+  return {
+    title: `${params.id}`,
+    description: `${params.id} match`
+  }
+}
 
 export default async function Home({ params }) {
   const match = await getMatch(params.id);
@@ -48,15 +51,6 @@ export default async function Home({ params }) {
       <div className="text-3xl text-gray-100 font-medium leading-8 mb-4">
         {match[0].name}
       </div>
-      <div className="grid grid-cols-8">
-        <MainCardMatch 
-        
-        />
-
-        <MainCardMatch 
-                
-        />      
-      </div>
 
       <div className="text-center">
         <span className="text-3xl font-bold mt-4">1/4</span>
@@ -70,11 +64,11 @@ export default async function Home({ params }) {
               <div className="flex-1 inline-flex items-center justify-between">
                 {bans1.map((ban) => (
                   <div key={ban} className="mr-4">
-                    <Image
-                      className="object-cover rounded-xl"
+                    <ImageBlur
+                      classes="object-cover rounded-xl" //w-32 h-32
                       width={80}
                       height={80}
-                      src={images[ban]}
+                      src={images[ban] ? images[ban] : "backend.avatar-paladins.webp"}
                       alt={ban}
                     />
                   </div>
@@ -87,11 +81,11 @@ export default async function Home({ params }) {
               <div className="flex-1 inline-flex items-center justify-between">
                 {bans2.map((ban) => (
                   <div key={ban} className="mr-4">
-                    <Image
-                      className="object-cover rounded-xl"
+                    <ImageBlur
+                      classes="object-cover rounded-xl"
                       width={80}
                       height={80}
-                      src={images[ban]}
+                      src={images[ban] ? images[ban] : "backend.avatar-paladins.webp"}
                       alt={ban}
                     />
                   </div>
@@ -104,9 +98,9 @@ export default async function Home({ params }) {
 
       <section className="container mt-4 mx-auto">
         <div className="flex flex-col mb-4">
-          <div className=" ">
+          <div className="overflow-x-auto">
             <div className="inline-block min-w-full py-2 align-middle">
-              <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+              <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-2xl">
                 <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                   <thead className="bg-gray-50 dark:bg-gray-800">
                     <tr>
@@ -216,7 +210,7 @@ export default async function Home({ params }) {
 
         <div className="flex pt-2 text-sm text-gray-200 mt-4">
           <div className="lg:flex-1 lg:inline-flex items-center justify-between">
-            <div className="w-half md:w-half bg-gray-900 border-gray-800 shadow-lg rounded-2xl p-4 md:mr-2 lg:mr-2 md:mt-0 lg:mt-0">
+            <div className="w-full md:w-full bg-gray-900 shadow-lg rounded-2xl p-4 md:mr-2 lg:mr-2 md:mt-0 lg:mt-0">
               <div className="p-4">
               <span className="text-xl text-gray-200 font-bold">Winners</span>
               <BarChart
@@ -258,45 +252,47 @@ export default async function Home({ params }) {
               />
               </div>
             </div>
-            <div className="w-half md:w-half bg-gray-900 border-gray-800 shadow-lg rounded-2xl p-4 md:ml-2 lg:ml-2 mt-4 md:mt-0 lg:mt-0">
-            <span className="text-xl text-gray-200 font-bold">Losers</span>
-              <BarChart 
-              names={[
-                match[5].playerName,
-                match[6].playerName,
-                match[7].playerName,
-                match[8].playerName,
-                match[9].playerName,
-              ]}
-              damage={[
-                match[5].Damage_Player,
-                match[6].Damage_Player,
-                match[7].Damage_Player,
-                match[8].Damage_Player,
-                match[9].Damage_Player,
-              ]}
-              taken={[
-                match[5].Damage_Taken,
-                match[6].Damage_Taken,
-                match[7].Damage_Taken,
-                match[8].Damage_Taken,
-                match[9].Damage_Taken,
-              ]}
-              healing={[
-                match[5].Healing,
-                match[6].Healing,
-                match[7].Healing,
-                match[8].Healing,
-                match[9].Healing,
-              ]}
-              shielding={[
-                match[5].Damage_Mitigated,
-                match[6].Damage_Mitigated,
-                match[7].Damage_Mitigated,
-                match[8].Damage_Mitigated,
-                match[9].Damage_Mitigated,
-              ]}
-              />
+            <div className="w-full md:w-full bg-gray-900 shadow-lg rounded-2xl p-4 md:ml-2 lg:ml-2 mt-4 md:mt-0 lg:mt-0">
+              <div className="p-4">
+              <span className="text-xl text-gray-200 font-bold">Losers</span>
+                <BarChart 
+                names={[
+                  match[5].playerName,
+                  match[6].playerName,
+                  match[7].playerName,
+                  match[8].playerName,
+                  match[9].playerName,
+                ]}
+                damage={[
+                  match[5].Damage_Player,
+                  match[6].Damage_Player,
+                  match[7].Damage_Player,
+                  match[8].Damage_Player,
+                  match[9].Damage_Player,
+                ]}
+                taken={[
+                  match[5].Damage_Taken,
+                  match[6].Damage_Taken,
+                  match[7].Damage_Taken,
+                  match[8].Damage_Taken,
+                  match[9].Damage_Taken,
+                ]}
+                healing={[
+                  match[5].Healing,
+                  match[6].Healing,
+                  match[7].Healing,
+                  match[8].Healing,
+                  match[9].Healing,
+                ]}
+                shielding={[
+                  match[5].Damage_Mitigated,
+                  match[6].Damage_Mitigated,
+                  match[7].Damage_Mitigated,
+                  match[8].Damage_Mitigated,
+                  match[9].Damage_Mitigated,
+                ]}
+                />
+              </div>
             </div>
           </div>
         </div>

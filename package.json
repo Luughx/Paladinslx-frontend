@@ -8,13 +8,26 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "browser":{
+    "child_process": false
+  },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "blurhash": "^2.0.5",
     "chart.js": "^4.4.0",
     "next": "14.0.1",
     "pe-paladins.js": "^3.5.0",
+    "plaiceholder": "^3.0.0",
     "react": "^18",
+    "react-blurhash": "^0.3.0",
     "react-chartjs-2": "^5.2.0",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-lazy-load-image-component": "^1.6.0",
+    "sharp": "^0.33.1",
+    "styled-components": "^6.1.8"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",

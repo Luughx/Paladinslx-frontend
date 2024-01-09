@@ -1,5 +1,7 @@
 import { kdaFunction } from "@/functions/main";
+import Image from "next/image";
 import Link from "next/link";
+import ImageBlur from "../all/ImageBlur";
 
 export default async function HistoryCard({ id, champion, images, win_status, queue, map, region, team1score, team2score, kills, assists, deaths, minutes }) {
     let firstScore = 0
@@ -22,10 +24,12 @@ export default async function HistoryCard({ id, champion, images, win_status, qu
         <div>
             <div className="flex-none sm:flex">
                 <div className=" relative h-32 w-32 sm:mb-0 mb-3">
-                    <img
-                        src={images[champion]}
+                    <ImageBlur
+                        width={128}
+                        height={128}
+                        src={images[champion] ? images[champion]  : "backend.avatar-paladins.webp"}
                         alt={`${champion} avatar`}
-                        className=" w-32 h-32 object-cover rounded-2xl"
+                        classes=" w-32 h-32 object-cover rounded-2xl"
                     />
                 </div>
                 <div className="flex-auto sm:ml-5">

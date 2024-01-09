@@ -7,6 +7,7 @@ import ImageBlur from "./all/ImageBlur";
 const getChampionsPlayer = async (id) => {
   const { BACKEND_URI } = process.env;
   const res = await fetch(`${BACKEND_URI}/users/${id}/champions`, {
+    next: { revalidate: 7200 },
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -18,6 +19,7 @@ const getChampionsPlayer = async (id) => {
 const getDataPlayer = async (id) => {
   const { BACKEND_URI } = process.env;
   const res = await fetch(`${BACKEND_URI}/users/${id}/stats`, {
+    next: { revalidate: 3600 },
     method: "GET",
     headers: {
       "Content-Type": "application/json",

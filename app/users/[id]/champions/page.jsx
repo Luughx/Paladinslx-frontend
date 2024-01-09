@@ -5,6 +5,7 @@ import { championsImage } from "@/functions/main";
 const getChampions = async (id) => {
   const { BACKEND_URI } = process.env;
   const res = await fetch(`${BACKEND_URI}/users/${id}/champions`, {
+    next: { revalidate: 3600 },
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -16,6 +17,7 @@ const getChampions = async (id) => {
 const getChampionsDefault = async () => {
   const { BACKEND_URI } = process.env;
   const res = await fetch(`${BACKEND_URI}/champions`, {
+    cache: "force-cache",
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -27,6 +29,7 @@ const getChampionsDefault = async () => {
 const getLoadouts = async (id) => {
   const { BACKEND_URI } = process.env;
   const res = await fetch(`${BACKEND_URI}/users/${id}/loadouts`, {
+    next: { revalidate: 180 },
     method: "GET",
     headers: {
       "Content-Type": "application/json",

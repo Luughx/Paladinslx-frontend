@@ -10,6 +10,7 @@ import WarnCurrentCard from "@/components/user-profile/WarnCurrentCard";
 const getPlayer = async (id) => {
   const { BACKEND_URI } = process.env;
   const res = await fetch(`${BACKEND_URI}/users/${id}/stats`, {
+    next: { revalidate: 600 },
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -21,6 +22,7 @@ const getPlayer = async (id) => {
 const getChampions = async (id) => {
   const { BACKEND_URI } = process.env;
   const res = await fetch(`${BACKEND_URI}/users/${id}/champions`, {
+    next: { revalidate: 600 },
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -32,6 +34,7 @@ const getChampions = async (id) => {
 const getMatchs = async (id) => {
   const { BACKEND_URI } = process.env;
   const res = await fetch(`${BACKEND_URI}/users/${id}/matchs`, {
+    cache: "no-cache",
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -43,6 +46,7 @@ const getMatchs = async (id) => {
 const getStatus = async (id) => {
   const { BACKEND_URI } = process.env;
   const res = await fetch(`${BACKEND_URI}/users/${id}/status`, {
+    cache: "no-cache",
     method: "GET",
     headers: {
       "Content-Type": "application/json",

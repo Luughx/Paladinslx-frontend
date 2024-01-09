@@ -8,6 +8,7 @@ import UserMatchActiveCard from "@/components/match-active/UserMatchActiveCard";
 const getMatch = async (id) => {
   const { BACKEND_URI } = process.env;
   const res = await fetch(`${BACKEND_URI}/matchs/${id}/active`, {
+    next: { revalidate: 600 },
     method: "GET",
     headers: {
       "Content-Type": "application/json",

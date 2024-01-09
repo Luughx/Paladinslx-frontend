@@ -27,7 +27,8 @@ const nextConfig = {
                 hostname: "paladinslx.com",
                 pathname: "**"
             }
-        ]
+        ],
+        unoptimized: true
     }
 }
 

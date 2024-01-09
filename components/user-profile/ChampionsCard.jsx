@@ -15,8 +15,8 @@ export default function ChampionsCard({ id, champions, images }) {
     });
 
     return (
-        <div className="col-span-12 sm:col-span-4 md:me-4">
-            <div className="p-5 relative bg-gray-900 border border-gray-800 shadow-lg rounded-2xl">
+        <div className="col-span-12 sm:col-span-4 ">
+            <div className="p-5 relative bg-gray-900 border border-gray-800 shadow-lg rounded-2xl md:me-4">
                 <div className="text-2xl text-gray-100 font-medium leading-8">
                     Champions
                 </div>

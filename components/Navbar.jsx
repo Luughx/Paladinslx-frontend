@@ -14,9 +14,11 @@ function NavBar() {
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
               {/* LOGO */}
               <Link href="/">
-                <img
+                <Image
+                  width={100}
+                  height={100}
                   className="h-8 w-auto"
-                  src="https://static.wikia.nocookie.net/logopedia/images/5/53/Paladins_Icon.png"
+                  src="/Paladins_Icon.webp"
                   alt="logo"
                 />
               </Link>

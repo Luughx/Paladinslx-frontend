@@ -27,7 +27,7 @@ export default function Main() {
                     Error 404
                   </div>
                   <div className="text-lg text-gray-100">
-                    This page doesn't exist
+                    This page doesn&apos;t exist
                   </div>
                   <Link href={"/"} className="mt-1 text-blue-800 rounded-xl font-medium text-center">
                     Return

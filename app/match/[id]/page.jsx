@@ -8,7 +8,7 @@ import ImageBlur from "@/components/all/ImageBlur";
 
 const getMatch = async (id) => {
   const { BACKEND_URI } = process.env;
-  const res = await fetch(`${BACKEND_URI}/matchs/${id}`, {
+  const res = await fetch(`${BACKEND_URI}/match/${id}`, {
     cache: "force-cache",
     method: "GET",
     headers: {

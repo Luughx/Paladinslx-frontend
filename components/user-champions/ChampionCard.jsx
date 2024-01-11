@@ -49,7 +49,7 @@ export default function ChampionCard({ champion, championsDefault, images, loado
                 setLoadout(true)
             } else {
                 setLoading(true)
-                fetch(`${process.env.NEXT_PUBLIC_BASE_URI}/champions/${parseInt(champion.champion_id)}/cards`, {
+                fetch(`${process.env.NEXT_PUBLIC_BACKEND_URI}/champions/${parseInt(champion.champion_id)}/cards`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { championsImage } from "@/functions/main";
-import { ChampionRole } from "pe-paladins.js/lib/data";
 import { ranks } from "@/functions/main";
 import ImageBlur from "./all/ImageBlur";
 
@@ -19,7 +18,7 @@ const getChampionsPlayer = async (id) => {
 const getDataPlayer = async (id) => {
   const { BACKEND_URI } = process.env;
   const res = await fetch(`${BACKEND_URI}/users/${id}/stats`, {
-    next: { revalidate: 3600 },
+    next: { revalidate: 7200 },
     method: "GET",
     headers: {
       "Content-Type": "application/json",

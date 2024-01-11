@@ -9,5 +9,7 @@ export async function GET(request, {params}) {
     })
     const data = await api.searchPlayers(id).catch(err => console.log(err))
 
+    if (data.length > 1) return NextResponse.json([data[0]])
+
     return NextResponse.json(data)
 }

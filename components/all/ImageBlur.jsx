@@ -4,11 +4,11 @@ import { getPlaiceholder } from "plaiceholder";
 export default async function ImageBlur({ src, width, height, alt, classes }) {
     
     let url = src
-    const { NEXT_PUBLIC_BACKEND_URI } = process.env
+    const { NEXT_PUBLIC_BASE_URI } = process.env
 
     if (src.includes("backend.")) {
         const split = src.split("backend.")
-        url = `${NEXT_PUBLIC_BACKEND_URI}/${split[1]}`
+        url = `${NEXT_PUBLIC_BASE_URI}/${split[1]}`
     }
     
     const buffer = await fetch(url).then(async (res) => {

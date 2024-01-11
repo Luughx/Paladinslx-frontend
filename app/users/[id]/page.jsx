@@ -21,6 +21,7 @@ export async function generateMetadata({ params }) {
 
 export default async function Home({ params }) {
   const players = await getPlayers(params.id).catch(err => {
+    console.log(err)
     return []
   })
 

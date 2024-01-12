@@ -27,15 +27,28 @@ export default async function Home({ params }) {
 
   return (
     <div className="mt-4 container">
-      <div className="max-w-5xl w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4">
-        {players.map((player) => (
-          <Link href={`/users/${player.player_id}/profile`} className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1" key={player.player_id}>
-            <UserCard
-              id={player.player_id}
-              name={player.Name}
-            />
-          </Link>
-        ))}
+      <div className="flex flex-col min-h-screen">
+        <div className="container mt-4">
+          {players.length == 0 && <div className="max-w-4xl w-full mx-auto grid gap-4 grid-cols-1">
+            <div className={`bg-gray-900 border border-red-800 shadow-lg rounded-2xl p-4`}>
+              <div className="grid grid-cols-2">
+                <div className="text-base text-gray-100 font-medium">
+                  This player doesn't exist
+                </div>
+              </div>
+            </div>
+          </div>}
+          <div className="max-w-5xl w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4">
+            {players.map((player) => (
+              <Link href={`/users/${player.player_id}/profile`} className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1" key={player.player_id}>
+                <UserCard
+                  id={player.player_id}
+                  name={player.Name}
+                />
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   )

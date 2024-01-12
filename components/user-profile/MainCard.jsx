@@ -8,9 +8,9 @@ export default async function MainCard({ name, id, wins, losses, winrate, rank, 
     const ranksData = ranks()
     const states = {
         0: "bg-gray-400", // Offline
-        1: "bg-green-400", // Online, en lobby
+        1: "bg-blue-400", // Online, en lobby
         2: "bg-amber-400", // En seleccion
-        3: "bg-yellow-500", // current
+        3: "bg-green-500", // current
         4: "bg-gray-400", // ???
         5: "bg-gray-400", // Player not found
         6: "bg-gray-400", // ???

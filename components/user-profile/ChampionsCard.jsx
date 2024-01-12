@@ -22,7 +22,7 @@ export default function ChampionsCard({ id, champions, images }) {
                 </div>
                 <div className="col-span-12 sm:col-span-4 md:me-4 mt-3">
                     {newChampions.map(champion => (
-                        <div className="relative bg-gray-900 rounded-2xl mb-1" key={champion.champion}>
+                        <div className="relative rounded-2xl mb-1" key={champion.champion}>
                             <div className="flex-none sm:flex">
                                 <div className="relative sm:mb-0 mb-3">
                                     <ImageBlur
@@ -30,7 +30,7 @@ export default function ChampionsCard({ id, champions, images }) {
                                         height={128}
                                         src={images[champion.champion] ? images[champion.champion] : "backend.avatar-paladins.webp"}
                                         alt={`${champion.champion} avatar`}
-                                        classes=" w-10 h-10 object-cover rounded-xl"
+                                        classes="w-10 h-10 object-cover rounded-xl"
                                     />
                                 </div>
                                 <div className="flex-auto sm:ml-5 justify-evenly">

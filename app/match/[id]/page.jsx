@@ -54,7 +54,7 @@ export default async function Home({ params }) {
       </div>
 
       <div className="text-center">
-        <span className="text-3xl font-bold mt-4">1/4</span>
+        <span className="text-3xl font-bold mt-4">{match[0].Team1Score}/{match[0].Team2Score}</span>
       </div>
 
       <div className="text-xl font-bold">Bans:</div>
@@ -168,7 +168,7 @@ export default async function Home({ params }) {
                         taken={player.Damage_Taken}
                         healing={player.Healing}
                         champion={player.Reference_Name}
-                        winner={true} 
+                        winner={true}
                         itemsImage={items_image}
                         itemsRaw={[
                           player.Item_Active_1,
@@ -213,85 +213,85 @@ export default async function Home({ params }) {
           <div className="lg:flex-1 lg:inline-flex items-center justify-between">
             <div className="w-full md:w-full bg-gray-900 shadow-lg rounded-2xl p-4 md:mr-2 lg:mr-2 md:mt-0 lg:mt-0">
               <div className="p-4">
-              <span className="text-xl text-gray-200 font-bold">Winners</span>
-              <BarChart
-              names={[
-                match[0].playerName,
-                match[1].playerName,
-                match[2].playerName,
-                match[3].playerName,
-                match[4].playerName
-              ]}
-              damage={[
-                match[0].Damage_Player,
-                match[1].Damage_Player,
-                match[2].Damage_Player,
-                match[3].Damage_Player,
-                match[4].Damage_Player
-              ]}
-              taken={[
-                match[0].Damage_Taken,
-                match[1].Damage_Taken,
-                match[2].Damage_Taken,
-                match[3].Damage_Taken,
-                match[4].Damage_Taken
-              ]}
-              healing={[
-                match[0].Healing,
-                match[1].Healing,
-                match[2].Healing,
-                match[3].Healing,
-                match[4].Healing
-              ]}
-              shielding={[
-                match[0].Damage_Mitigated,
-                match[1].Damage_Mitigated,
-                match[2].Damage_Mitigated,
-                match[3].Damage_Mitigated,
-                match[4].Damage_Mitigated
-              ]}
-              />
+                <span className="text-xl text-gray-200 font-bold">Winners</span>
+                <BarChart
+                  names={[
+                    match[0].playerName,
+                    match[1].playerName,
+                    match[2].playerName,
+                    match[3].playerName,
+                    match[4].playerName
+                  ]}
+                  damage={[
+                    match[0].Damage_Player,
+                    match[1].Damage_Player,
+                    match[2].Damage_Player,
+                    match[3].Damage_Player,
+                    match[4].Damage_Player
+                  ]}
+                  taken={[
+                    match[0].Damage_Taken,
+                    match[1].Damage_Taken,
+                    match[2].Damage_Taken,
+                    match[3].Damage_Taken,
+                    match[4].Damage_Taken
+                  ]}
+                  healing={[
+                    match[0].Healing,
+                    match[1].Healing,
+                    match[2].Healing,
+                    match[3].Healing,
+                    match[4].Healing
+                  ]}
+                  shielding={[
+                    match[0].Damage_Mitigated,
+                    match[1].Damage_Mitigated,
+                    match[2].Damage_Mitigated,
+                    match[3].Damage_Mitigated,
+                    match[4].Damage_Mitigated
+                  ]}
+                />
               </div>
             </div>
             <div className="w-full md:w-full bg-gray-900 shadow-lg rounded-2xl p-4 md:ml-2 lg:ml-2 mt-4 md:mt-0 lg:mt-0">
               <div className="p-4">
-              <span className="text-xl text-gray-200 font-bold">Losers</span>
-                <BarChart 
-                names={[
-                  match[5].playerName,
-                  match[6].playerName,
-                  match[7].playerName,
-                  match[8].playerName,
-                  match[9].playerName,
-                ]}
-                damage={[
-                  match[5].Damage_Player,
-                  match[6].Damage_Player,
-                  match[7].Damage_Player,
-                  match[8].Damage_Player,
-                  match[9].Damage_Player,
-                ]}
-                taken={[
-                  match[5].Damage_Taken,
-                  match[6].Damage_Taken,
-                  match[7].Damage_Taken,
-                  match[8].Damage_Taken,
-                  match[9].Damage_Taken,
-                ]}
-                healing={[
-                  match[5].Healing,
-                  match[6].Healing,
-                  match[7].Healing,
-                  match[8].Healing,
-                  match[9].Healing,
-                ]}
-                shielding={[
-                  match[5].Damage_Mitigated,
-                  match[6].Damage_Mitigated,
-                  match[7].Damage_Mitigated,
-                  match[8].Damage_Mitigated,
-                  match[9].Damage_Mitigated,
-                ]}
+                <span className="text-xl text-gray-200 font-bold">Losers</span>
+                <BarChart
+                  names={[
+                    match[5].playerName,
+                    match[6].playerName,
+                    match[7].playerName,
+                    match[8].playerName,
+                    match[9].playerName,
+                  ]}
+                  damage={[
+                    match[5].Damage_Player,
+                    match[6].Damage_Player,
+                    match[7].Damage_Player,
+                    match[8].Damage_Player,
+                    match[9].Damage_Player,
+                  ]}
+                  taken={[
+                    match[5].Damage_Taken,
+                    match[6].Damage_Taken,
+                    match[7].Damage_Taken,
+                    match[8].Damage_Taken,
+                    match[9].Damage_Taken,
+                  ]}
+                  healing={[
+                    match[5].Healing,
+                    match[6].Healing,
+                    match[7].Healing,
+                    match[8].Healing,
+                    match[9].Healing,
+                  ]}
+                  shielding={[
+                    match[5].Damage_Mitigated,
+                    match[6].Damage_Mitigated,
+                    match[7].Damage_Mitigated,
+                    match[8].Damage_Mitigated,
+                    match[9].Damage_Mitigated,
+                  ]}
                 />
               </div>
             </div>

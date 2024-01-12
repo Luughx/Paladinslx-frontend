@@ -23,7 +23,7 @@ export default async function HistoryCard({ id, champion, images, win_status, qu
     return (
         <div>
             <div className="flex-none sm:flex">
-                <div className=" relative h-32 w-32 sm:mb-0 mb-3">
+                <div className="relative h-32 w-32 sm:mb-0 mb-3">
                     <ImageBlur
                         width={128}
                         height={128}

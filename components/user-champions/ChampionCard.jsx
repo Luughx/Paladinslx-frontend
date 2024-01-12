@@ -221,20 +221,22 @@ export default function ChampionCard({ champion, championsDefault, images, loado
                                                             ${card.Points === 4 ? "border-purple-600" : ""}
                                                             ${card.Points === 5 ? "border-yellow-500" : ""}
                                                             `}>
-                                                                <div>
-                                                                    <div>
+                                                                <div className="w-14">
+                                                                    <div className="">
                                                                         <Image
                                                                             src={cardsImage[card.ItemId][0] ? cardsImage[card.ItemId][0] : "/avatar-paladins.webp"}
                                                                             height={100}
                                                                             width={100}
                                                                             alt={card.ItemId}
-                                                                            className="object-cover rounded-md"
+                                                                            className=" object-cover rounded-md"
                                                                             placeholder="blur"
                                                                             blurDataURL={cardsImage[card.ItemId][1]}
                                                                         />
                                                                     </div>
-                                                                    <div className="text-sm line-clamp-2 text-center mt-1">
-                                                                        {card.ItemName}
+                                                                    <div className="text-sm line-clamp-2 text-center mt-1 ">
+                                                                        <span className="">
+                                                                            {card.ItemName}
+                                                                        </span>
                                                                     </div>
                                                                 </div>
                                                             </div>

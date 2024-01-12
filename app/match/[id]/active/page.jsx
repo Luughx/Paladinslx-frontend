@@ -51,7 +51,7 @@ export default async function Home({ params }) {
               </div>
             </div>
           </div>}
-          { match.length > 1 && <div>
+          {match.length > 1 && <div>
             <div className="">
               <span className="text-2xl font-bold">
                 {match[0].mapGame}

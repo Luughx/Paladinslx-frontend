@@ -8,7 +8,7 @@ export default async function UserMatchCard({ name, id, kills, assists, deaths, 
     const items = itemsRaw.filter(item => item != "")
 
     return (
-        <tr className={`${winner ? "dark:bg-sky-900" : "dark:bg-red-900"} bg-white dark:divide-gray-700 dark:bg-gray-900`}>
+        <tr className={`${winner ? "dark:bg-sky-900" : "dark:bg-red-900"} dark:divide-gray-700 dark:bg-gray-900`}>
             <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                 <Link href={`/users/${id}/profile`} className="flex items-center gap-x-6">
                     <div className="relative inline-block shrink-0 rounded-2xl me-3">

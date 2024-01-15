@@ -3,14 +3,14 @@ import Link from "next/link"
 import Image from "next/image";
 import ImageBlur from "../all/ImageBlur";
 
-export default async function UserMatchCard({ name, id, kills, assists, deaths, damage, shielding, taken, healing, winner, champion, itemsRaw, itemsImage }) {
+export default async function UserMatchCard({ name, id, kills, assists, deaths, damage, shielding, taken, healing, winner, champion, itemsRaw, itemsImage, platform }) {
     const images = await championsImage()
     const items = itemsRaw.filter(item => item != "")
 
     return (
         <tr className={`${winner ? "dark:bg-sky-900" : "dark:bg-red-900"} dark:divide-gray-700 dark:bg-gray-900`}>
             <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                <Link href={`/users/${id}/profile`} className="flex items-center gap-x-6">
+                <Link href={`${platform ? "/users/"+id+"/profile" : "/"}`} className="flex items-center gap-x-6">
                     <div className="relative inline-block shrink-0 rounded-2xl me-3">
                         <ImageBlur 
                         width={70} 

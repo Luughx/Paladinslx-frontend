@@ -59,8 +59,8 @@ export async function generateMetadata({ params }) {
   const player = await getPlayer(params.id)
 
   return {
-    title: `${player.Name}`,
-    description: `${player.Name} profile`
+    title: `${player.hz_player_name}`,
+    description: `${player.hz_player_name} profile`
   }
 }
 

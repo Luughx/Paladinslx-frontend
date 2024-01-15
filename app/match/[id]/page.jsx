@@ -196,6 +196,7 @@ export default async function Home({ params }) {
                             player.Item_Active_3,
                             player.Item_Active_4,
                           ]}
+                          platform={player.Platform}
                           key={player.playerId}
                         />
                       ))}
@@ -219,6 +220,7 @@ export default async function Home({ params }) {
                             player.Item_Active_3,
                             player.Item_Active_4,
                           ]}
+                          platform={player.Platform}
                           key={player.playerId}
                         />
                       ))}

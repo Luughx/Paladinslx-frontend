@@ -34,6 +34,7 @@ export default async function Home({ params }) {
 
   let bans1 = []
   let bans2 = []
+  
   if (match.length != 0) {
     images = await championsImage();
     items_image = await itemsImage();

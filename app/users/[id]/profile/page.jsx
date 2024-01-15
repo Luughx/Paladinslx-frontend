@@ -91,11 +91,11 @@ export default async function Home({ params }) {
             {currentDefault && <WarnCurrentCard 
               status={status}
               id={player.Id}
-              name={player.Name}
+              name={player.hz_player_name}
               currentDefault={currentDefault}
             />}
             <MainCard
-              name={player.Name}
+              name={player.hz_player_name}
               id={player.Id}
               losses={player.Losses}
               wins={player.Wins}

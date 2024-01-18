@@ -34,8 +34,10 @@ export default async function Home({ params }) {
 
   let bans1 = []
   let bans2 = []
+
+  let errorText = ""
   
-  if (match.length != 0) {
+  if (match.length > 1 ) {
     images = await championsImage();
     items_image = await itemsImage();
 
@@ -55,20 +57,23 @@ export default async function Home({ params }) {
       match[0].Ban_7,
       match[0].Ban_8,
     ]
+  } else {
+    if (!match) errorText = "This match doesn't exist"
+    else errorText = "This match has an error"
   }
 
   return (
     <div className="container mt-4 p-4">
-      {match.length === 0 && <div className="max-w-4xl w-full mx-auto grid gap-4 grid-cols-1">
+      {errorText != "" && <div className="max-w-4xl w-full mx-auto grid gap-4 grid-cols-1">
         <div className={`bg-gray-900 border border-red-800 shadow-lg rounded-2xl p-4`}>
           <div className="grid grid-cols-2">
             <div className="text-base text-gray-100 font-medium">
-              This match doesn&apos;t exist or has already finished
+              {errorText}
             </div>
           </div>
         </div>
       </div>}
-      {match.length != 0 && <div>
+      {match.length > 1 && <div>
         <div className="text-3xl text-gray-100 font-medium leading-8 mb-4">
           {match[0].name}
         </div>

@@ -11,20 +11,22 @@ export default function ImagesItems({ images, image, level }) {
         1: 66,
         2: 100
     }
+
+    console.log(images[image])
     
     return (
         <div className="ml-2">
             <div onMouseEnter={() => setActive(true)} onMouseLeave={() => setActive(false)}>
                 <div>
                     <Image
-                        src={images[image] ? images[image] : "backend.avatar-paladins.webp"}
+                        src={images[image] ? images[image] : "/avatar-paladins.webp"}
                         alt={image}
                         width={50}
                         height={50}
-                        className="object-cover rounded-xl w-32px h-32px inline-block shrink-0"
+                        className="object-cover rounded-xl w-32px h-[40px] inline-block shrink-0"
                     />
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-2.5 bg-gray-700">
+                <div className="w-full bg-gray-200 rounded-full h-2.5 bg-gray-700 mt-1">
                     <div className="bg-blue-600 h-2.5 rounded-lg" style={{ width: activeLevels[level] + "%" }}></div>
                 </div>
             </div>

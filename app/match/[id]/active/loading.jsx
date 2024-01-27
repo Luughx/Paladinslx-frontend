@@ -28,7 +28,7 @@ export default function Loading() {
                                                     </td>
                                                 ))}
                                             </tr>
-                                            <tr className={`bg-white `}>
+                                            <tr className={`bg-gray-900`}>
                                                 <td className="p-4 text-sm text-gray-500 whitespace-nowrap">
 
                                                 </td>

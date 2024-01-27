@@ -12,8 +12,6 @@ export default function ImagesItems({ images, image, level }) {
         2: 100
     }
 
-    console.log(images[image])
-    
     return (
         <div className="ml-2">
             <div onMouseEnter={() => setActive(true)} onMouseLeave={() => setActive(false)}>

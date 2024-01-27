@@ -63,14 +63,14 @@ export default async function Home({ params }) {
             <div className="flex flex-col mb-4">
               <div className="overflow-x-auto">
                 <div className="inline-block min-w-full py-2 align-middle">
-                  <div className="overflow-hidden dark:border-gray-700 md:rounded-2xl">
-                    <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                  <div className="overflow-hidden  md:rounded-2xl">
+                    <table className="min-w-full divide-y divide-gray-200 ">
                       <tbody className="divide-y divide-gray-800">
                         <UserMatchActiveCard
                           players={first}
                           images={images}
                         />
-                        <tr className={`bg-white dark:divide-gray-700 dark:bg-gray-900`}>
+                        <tr className={`bg-gray-900`}>
                           <td className="p-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
 
                           </td>

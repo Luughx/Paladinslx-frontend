@@ -10,7 +10,7 @@ export default async function UserMatchActiveCard({ players, images }) {
         <tr className={`bg-gray-900`}>
             {players.map(player => (
                 <td
-                    className={`p-4 text-gray-500 dark:text-gray-300 whitespace-nowrap`}
+                    className={`p-4 text-gray-300 whitespace-nowrap`}
                     key={player.ChampionId}>
                     <div className="flex flex-col justify-center items-center">
                         <div className={`relative inline-block shrink-0 rounded-2xl `}>

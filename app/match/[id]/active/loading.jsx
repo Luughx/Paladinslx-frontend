@@ -7,13 +7,13 @@ export default function Loading() {
                     <div className="flex flex-col mb-4">
                         <div className="overflow-x-auto">
                             <div className="inline-block min-w-full py-2 align-middle">
-                                <div className="overflow-hidden dark:border-gray-700 md:rounded-2xl">
-                                    <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                <div className="overflow-hidden md:rounded-2xl">
+                                    <table className="min-w-full divide-y divide-gray-200">
                                         <tbody className="divide-y divide-gray-800">
                                             <tr className={`bg-gray-900`}>
                                                 {[...Array(5).keys()].map(i => (
                                                     <td
-                                                        className={`p-4 text-gray-500 dark:text-gray-300 whitespace-nowrap animate-pulse`}
+                                                        className={`p-4 text-gray-500 whitespace-nowrap animate-pulse`}
                                                         key={i}>
                                                         <div className="flex flex-col justify-center items-center">
                                                             <div className={`relative inline-block shrink-0 rounded-2xl `}>
@@ -28,27 +28,27 @@ export default function Loading() {
                                                     </td>
                                                 ))}
                                             </tr>
-                                            <tr className={`bg-white dark:divide-gray-700 dark:bg-gray-900`}>
-                                                <td className="p-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                            <tr className={`bg-white `}>
+                                                <td className="p-4 text-sm text-gray-500 whitespace-nowrap">
 
                                                 </td>
-                                                <td className="p-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                <td className="p-4 text-sm text-gray-500 whitespace-nowrap">
 
                                                 </td>
-                                                <td className="p-4 text-2xl font-bold text-gray-500 dark:text-gray-300 whitespace-nowrap text-center animate-pulse">
+                                                <td className="p-4 text-2xl font-bold text-gray-500 whitespace-nowrap text-center animate-pulse">
                                                     vs
                                                 </td>
-                                                <td className="p-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                <td className="p-4 text-sm text-gray-500 whitespace-nowrap">
 
                                                 </td>
-                                                <td className="p-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                <td className="p-4 text-sm text-gray-500  whitespace-nowrap">
 
                                                 </td>
                                             </tr>
                                             <tr className={`bg-gray-900`}>
                                                 {[...Array(5).keys()].map(i => (
                                                     <td
-                                                        className={`p-4 text-gray-500 dark:text-gray-300 whitespace-nowrap animate-pulse`}
+                                                        className={`p-4 text-gray-500 whitespace-nowrap animate-pulse`}
                                                         key={i}>
                                                         <div className="flex flex-col justify-center items-center">
                                                             <div className={`relative inline-block shrink-0 rounded-2xl `}>

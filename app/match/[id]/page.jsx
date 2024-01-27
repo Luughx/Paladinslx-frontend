@@ -5,6 +5,7 @@ import Image from "next/image";
 import "./page.css"
 import MainCardMatch from "@/components/match/MainCardMatch";
 import ImageBlur from "@/components/all/ImageBlur";
+import TableTeam from "@/components/match/TableTeam";
 
 const getMatch = async (id) => {
   const { BACKEND_URI } = process.env;
@@ -36,8 +37,9 @@ export default async function Home({ params }) {
   let bans2 = []
 
   let errorText = ""
-  
-  if (match.length > 1 ) {
+  let teams = {}
+
+  if (match.length > 1) {
     images = await championsImage();
     items_image = await itemsImage();
 
@@ -57,11 +59,38 @@ export default async function Home({ params }) {
       match[0].Ban_7,
       match[0].Ban_8,
     ]
+
+    let temporalTeams = {}
+    let cleanTeams = {}
+
+    match.forEach(player => {
+      if (temporalTeams[player.PartyId]) {
+        temporalTeams[player.PartyId].push(player.playerId)
+      } else {
+        temporalTeams[player.PartyId] = [player.playerId]
+      }
+    });
+    const keys = Object.keys(temporalTeams)
+    const values = Object.values(temporalTeams)
+
+    for (let i = 0; i < keys.length; i++) {
+      if (values[i].length > 1) cleanTeams[keys[i]] = values[i]
+    }
+
+    const keysTeams = Object.keys(cleanTeams)
+    const valuesTeams = Object.values(cleanTeams)
+
+    for (let i = 0; i < keysTeams.length; i++) {
+      for (let j = 0; j < valuesTeams[i].length; j++) {
+        teams[valuesTeams[i][j]] = `team${i+1}`
+      }
+    }
+
   } else {
     if (!match) errorText = "This match doesn't exist"
     else errorText = "This match has an error"
   }
-
+  
   return (
     <div className="container mt-4 p-4">
       {errorText != "" && <div className="max-w-4xl w-full mx-auto grid gap-4 grid-cols-1">
@@ -126,55 +155,55 @@ export default async function Home({ params }) {
           <div className="flex flex-col mb-4">
             <div className="overflow-x-auto">
               <div className="inline-block min-w-full py-2 align-middle">
-                <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-2xl">
-                  <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                    <thead className="bg-gray-50 dark:bg-gray-800">
+                <div className="overflow-hidden border border-gray-200 border-gray-700 md:rounded-2xl">
+                  <table className="min-w-full divide-y divide-gray-200 divide-gray-700">
+                    <thead className="bg-gray-800">
                       <tr>
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                          className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 text-gray-400"
                         >
                           User
                         </th>
 
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                          className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 text-gray-400"
                         >
                           KDA
                         </th>
 
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                          className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 text-gray-400"
                         >
                           Damage
                         </th>
 
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                          className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 text-gray-400"
                         >
                           Taken
                         </th>
 
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                          className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 text-gray-400"
                         >
                           Shielding
                         </th>
 
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                          className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 text-gray-400"
                         >
                           Healing
                         </th>
 
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                          className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 text-gray-400"
                         >
                           Items
                         </th>
@@ -196,12 +225,14 @@ export default async function Home({ params }) {
                           winner={true}
                           itemsImage={items_image}
                           itemsRaw={[
-                            player.Item_Active_1,
-                            player.Item_Active_2,
-                            player.Item_Active_3,
-                            player.Item_Active_4,
+                            [player.Item_Active_1, player.ActiveLevel1],
+                            [player.Item_Active_2, player.ActiveLevel2],
+                            [player.Item_Active_3, player.ActiveLevel3],
+                            [player.Item_Active_4, player.ActiveLevel4],
                           ]}
                           platform={player.Platform}
+                          teams={teams}
+                          tier={player.League_Tier}
                           key={player.playerId}
                         />
                       ))}
@@ -220,12 +251,14 @@ export default async function Home({ params }) {
                           winner={false}
                           itemsImage={items_image}
                           itemsRaw={[
-                            player.Item_Active_1,
-                            player.Item_Active_2,
-                            player.Item_Active_3,
-                            player.Item_Active_4,
+                            [player.Item_Active_1, player.ActiveLevel1],
+                            [player.Item_Active_2, player.ActiveLevel2],
+                            [player.Item_Active_3, player.ActiveLevel3],
+                            [player.Item_Active_4, player.ActiveLevel4],
                           ]}
                           platform={player.Platform}
+                          teams={teams}
+                          tier={player.League_Tier}
                           key={player.playerId}
                         />
                       ))}
@@ -236,8 +269,7 @@ export default async function Home({ params }) {
             </div>
           </div>
 
-          <div className="flex pt-2 text-sm text-gray-200 mt-4">
-            <div className="lg:flex-1 lg:inline-flex items-center justify-between">
+          <div className="gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2">
               <div className="w-full md:w-full bg-gray-900 shadow-lg rounded-2xl p-4 md:mr-2 lg:mr-2 md:mt-0 lg:mt-0">
                 <div className="p-4">
                   <span className="text-xl text-gray-200 font-bold">Winners</span>
@@ -322,7 +354,6 @@ export default async function Home({ params }) {
                   />
                 </div>
               </div>
-            </div>
           </div>
         </section>
       </div>}

@@ -39,55 +39,55 @@ export default function Loading() {
                 <div className="flex flex-col mb-4">
                     <div className="overflow-x-auto">
                         <div className="inline-block min-w-full py-2 align-middle">
-                            <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-2xl">
-                                <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                                    <thead className="bg-gray-50 dark:bg-gray-800">
+                            <div className="overflow-hidden border border-gray-700 md:rounded-2xl">
+                                <table className="min-w-full divide-y divide-gray-700">
+                                    <thead className="bg-gray-800 divide-gray-700">
                                         <tr>
                                             <th
                                                 scope="col"
-                                                className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                                                className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500"
                                             >
                                                 User
                                             </th>
 
                                             <th
                                                 scope="col"
-                                                className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                                                className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500"
                                             >
                                                 KDA
                                             </th>
 
                                             <th
                                                 scope="col"
-                                                className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                                                className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500"
                                             >
                                                 Damage
                                             </th>
 
                                             <th
                                                 scope="col"
-                                                className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                                                className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500"
                                             >
                                                 Taken
                                             </th>
 
                                             <th
                                                 scope="col"
-                                                className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                                                className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500"
                                             >
                                                 Shielding
                                             </th>
 
                                             <th
                                                 scope="col"
-                                                className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                                                className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500"
                                             >
                                                 Healing
                                             </th>
 
                                             <th
                                                 scope="col"
-                                                className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                                                className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500"
                                             >
                                                 Items
                                             </th>
@@ -95,8 +95,8 @@ export default function Loading() {
                                     </thead>
                                     <tbody className="divide-y divide-gray-800">
                                         {[...Array(10).keys()].map(i => (
-                                            <tr className={`bg-white dark:divide-gray-700 dark:bg-gray-900`} key={i}>
-                                                <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap animate-pulse">
+                                            <tr className={`bg-gray-900 divide-gray-800`} key={i}>
+                                                <td className="px-4 py-4 text-sm text-gray-500 whitespace-nowrap animate-pulse">
                                                     <div className="flex items-center gap-x-6">
                                                         <div className="relative inline-block shrink-0 rounded-2xl me-3">
                                                             <div className="text-center relative h-16 w-16 bg-slate-700 sm:mb-0 mb-3 rounded-2xl mt-3"></div>
@@ -104,22 +104,22 @@ export default function Loading() {
                                                         <div className="h-5 w-28 bg-slate-700 flex"></div>
                                                     </div>
                                                 </td>
-                                                <td className="py-4 text-sm font-medium dark:text-gray-300 whitespace-nowrap gap-x-2 animate-pulse">
+                                                <td className="py-4 text-sm font-medium whitespace-nowrap gap-x-2 animate-pulse">
                                                     <div className="h-4 w-20 bg-slate-700 flex"></div>
                                                 </td>
-                                                <td className="py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap gap-x-2 animate-pulse">
+                                                <td className="py-4 text-sm text-gray-500 whitespace-nowrap gap-x-2 animate-pulse">
                                                     <div className="h-4 w-10 bg-slate-700 flex"></div>
                                                 </td>
-                                                <td className="py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap gap-x-2 animate-pulse">
+                                                <td className="py-4 text-sm text-gray-500 whitespace-nowrap gap-x-2 animate-pulse">
                                                     <div className="h-4 w-10 bg-slate-700 flex"></div>
                                                 </td>
-                                                <td className=" py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap gap-x-2 animate-pulse">
+                                                <td className=" py-4 text-sm text-gray-500 whitespace-nowrap gap-x-2 animate-pulse">
                                                     <div className="h-4 w-10 bg-slate-700 flex"></div>
                                                 </td>
-                                                <td className=" py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap gap-x-2 animate-pulse">
+                                                <td className=" py-4 text-sm text-gray-500 whitespace-nowrap gap-x-2 animate-pulse">
                                                     <div className="h-4 w-10 bg-slate-700 flex"></div>
                                                 </td>
-                                                <td className="py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap gap-x-2 animate-pulse">
+                                                <td className="py-4 text-sm text-gray-500 whitespace-nowrap gap-x-2 animate-pulse">
                                                     <div className="flex items-center gap-x-6">
                                                         <div className="flex inline-flex shrink-0 rounded-2xl me-3">
                                                             {[...Array(4).keys()].map(i => (

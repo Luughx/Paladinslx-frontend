@@ -21,7 +21,7 @@ export async function generateMetadata({ params }) {
 
 export default async function Home({ params }) {
   const players = await getPlayers(params.id).catch(err => {
-    console.log(err)
+    console.log(err) 
     return []
   })
 
@@ -33,7 +33,7 @@ export default async function Home({ params }) {
             <div className={`bg-gray-900 border border-red-800 shadow-lg rounded-2xl p-4`}>
               <div className="grid grid-cols-2">
                 <div className="text-base text-gray-100 font-medium">
-                  This player doesn&apos;t exist
+                  This player doesn&apos;t exist 
                 </div>
               </div>
             </div>

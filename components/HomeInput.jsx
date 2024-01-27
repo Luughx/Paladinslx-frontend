@@ -11,9 +11,10 @@ export default function HomeInput() {
     const searchRoute = (e) => {
         e.preventDefault()
         if (username.length == 0) return console.log("no hagas nada")
+        setLoading(true)
 
         router.push(`/users/${username}`)
-        setLoading(true)
+        setLoading(false)
     }
 
     return (
